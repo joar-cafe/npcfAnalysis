@@ -1,0 +1,38 @@
+This file just contains some notes to myself about various things.
+
+Checklist for making a new release:
+
+For new major or minor releases:
+
+- Run test suite on as many machines as possible.
+- Read over the CHANGELOG.rst file and edit as needed.
+- Update the wiki pages to incorporate any changes as needed.
+- Update any docs that might need updating.
+- git checkout -b releases/M.m
+- git push -u origin releases/M.m
+
+For all releases:
+
+- Update the version number to the new M.m.r value in _version.py
+- Update CHANGELOG if necessary.
+- pip install .  (make sure this is current)
+- In docs directory, run update_docs
+- Commit new docs in releases/M.m branch as single commit.
+- On GitHub page, go to Code - Tags - Releases
+    (https://github.com/rmjarvis/TreeCorr/releases)
+- Draft a new release
+    - Set tag version vM.m.r
+    - Set target releases/M.m
+    - Set title Version M.m.r
+    - For text, link to CHANGELOG and full docs
+    - Publish Release
+- Check the twine upload that it is running.
+- When done, check pip install treecorr locally.
+
+For major or minor releases:
+
+- Back in main, update version number to M.(m+1) (i.e. no .r)
+- Add tagged CHANGELOG blob to the history page in the docs.
+- Clear out CHANGELOG.rst
+- Change github home page to point to releases/M.m
+- Also change the Pages to point to releases/M.m
