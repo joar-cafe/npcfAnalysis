@@ -91,7 +91,7 @@ def parse_unit(value):
     The value is allowed to merely start with one of the unit names.  So 'deg', 'degree',
     'degrees' all convert to 'deg' which is the name in coord.AngleUnit.valid_names.
     The return value in this case would be coord.AngleUnit.from_name('deg').value,
-    which has the value pi/180.
+    which has the value pi/180 (joar:rad).
 
     :param value:   The unit as a string value to parse.
 

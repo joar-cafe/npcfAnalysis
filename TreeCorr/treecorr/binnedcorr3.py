@@ -155,7 +155,7 @@ class BinnedCorr3(object):
                             to use:
 
                              - 0 means no logging output
-                             - 1 means to output warnings only (default)
+                             - 1 means to output warningmerge_cons only (default)
                              - 2 means to output various progress information
                              - 3 means to output extensive debugging information
 
@@ -334,6 +334,7 @@ class BinnedCorr3(object):
             self._ro.nbins = int(math.ceil(math.log(self.max_sep/self.min_sep)/bin_size))
             # Update self.bin_size given this value of nbins
             self._ro.bin_size = math.log(self.max_sep/self.min_sep)/self.nbins
+            
             # Note in this case, bin_size is saved as the nominal bin_size from the config
             # file, and self.bin_size is the one for the radial bins.  We'll use the nominal
             # bin_size as the default bin_size for u and v below.
