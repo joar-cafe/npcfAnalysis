@@ -31,6 +31,7 @@ lib_file = os.path.join(treecorr_dir,'_treecorr.so')
 # so if the normal name doesn't exist, look for something else.
 if not os.path.exists(lib_file): # pragma: no cover
     alt_files = glob.glob(os.path.join(os.path.dirname(__file__),'_treecorr*.so'))
+    print("found path for lib_file(treecorr*.so) at: {}".format(alt_files))
     if len(alt_files) == 0:
         raise OSError("No file '_treecorr.so' found in %s"%treecorr_dir)
     if len(alt_files) > 1:
@@ -40,8 +41,10 @@ if not os.path.exists(lib_file): # pragma: no cover
 # Load the C functions with cffi
 _ffi = cffi.FFI()
 for file_name in glob.glob(os.path.join(include_dir,'*_C.h')):
+    print("leyendo {} con el comando de c read.()".format(file_name)) # joar: what C is tc reading?
     with open(file_name) as fin:
         _ffi.cdef(fin.read())
+print("que es lib_file, porque es lo que esta abriedno cffi.FFI.dlopen: {}".format(lib_file))
 _lib = _ffi.dlopen(lib_file)
 
 Rperp_alias = 'FisherRperp'

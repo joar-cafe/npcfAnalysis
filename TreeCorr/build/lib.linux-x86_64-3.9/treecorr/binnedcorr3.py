@@ -314,11 +314,17 @@ class BinnedCorr3(object):
 
         self._ro.bin_type = self.config.get('bin_type', None)
         self._ro._bin_type = _lib.Log
-        print("joar: self.ro.bin_type:{},type(self.ro.bint_ype):{},self._ro._bintype:{},type(self._ro._bintype):{}".format(
+        print("joar: self.ro.bin_type:{},type(self.ro.bint_ype):{},self._ro._bintype:{},type(self._ro._bintype):{}\n".format(
             self._ro.bin_type,type(self._ro._bin_type),self._ro._bin_type,type(self._ro._bin_type)))
 
         self._ro.sep_units = self.config.get('sep_units','')
+        print("")
+        print("self._ro.sep_units = {}".format(self._ro.sep_units)) # joar
+        print("type(self._ro.sep_units) = {}".format(type(self._ro.sep_units))) # joar
+        print("self._ro.sep_units == None = {}".format(self._ro.sep_units == None)) # joar
         self._ro._sep_units = get(self.config,'sep_units',str,'radians')
+        print("\nself._ro._sep_units = {}".format(self._ro._sep_units)) # joar
+        print("self._sep_units: {}".format(self._sep_units)) # joar
         self._ro._log_sep_units = math.log(self._sep_units)
         if self.config.get('nbins', None) is None:
             if self.config.get('max_sep', None) is None:
